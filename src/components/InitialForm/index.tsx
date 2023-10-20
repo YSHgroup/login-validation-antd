@@ -4,13 +4,11 @@ import { createTheme, useStyleRegister } from '@ant-design/cssinjs'
 import { UserInfoType } from '../../types/type'
 import { formCss } from '../../styles/formStyle'
 import arrow from './arrow.svg'
-
+import { InitialFormProps } from '../../types/interfaces'
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
 }
-interface InitialFormProps {
-  continueHandle: (values: UserInfoType) => void
-}
+
 const { Option } = Select
 
 const validateMessages = {

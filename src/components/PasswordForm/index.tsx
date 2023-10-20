@@ -6,13 +6,11 @@ import {
 } from '@ant-design/cssinjs'
 import { UserInfoType } from '../../types/type'
 import { formCss } from '../../styles/formStyle'
-
+import { PasswordFormProps } from '../../types/interfaces'
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
 }
-interface PasswordFormProps {
-  continueHandle: (values:UserInfoType) => void
-}
+
 const validateMessages = {
   required: '${label} is required!',
   types: {

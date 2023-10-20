@@ -4,15 +4,11 @@ import {
   createTheme,
   useStyleRegister,
 } from '@ant-design/cssinjs'
-import { UserInfoType } from '../../types/type'
 import { reviewStyle } from '../../styles/reviewStyle'
 
-interface InitialFormProps {
-  finish: () => void,
-  info: UserInfoType | undefined,
-}
+import { ReviewFormProps } from '../../types/interfaces'
 
-const Review: React.FC<InitialFormProps> = ({ finish, info }) => {
+const Review: React.FC<ReviewFormProps> = ({ finish, info }) => {
   useStyleRegister(
     {
       theme: createTheme(() => ({})),
