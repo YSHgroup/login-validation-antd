@@ -4,7 +4,8 @@ import {
   createTheme,
   useStyleRegister,
 } from '@ant-design/cssinjs'
-import { UserInfoType } from '../../utils/type'
+import { UserInfoType } from '../../types/type'
+import { reviewStyle } from '../../styles/reviewStyle'
 
 interface InitialFormProps {
   finish: () => void,
@@ -18,46 +19,7 @@ const Review: React.FC<InitialFormProps> = ({ finish, info }) => {
       token: {},
       path: ['.review'],
     },
-    () => ({
-      '.review': {
-        marginLeft: 'calc(50% - 20vw - 100px)',
-        maxWidth: '400px',
-        padding: '30px 20px',
-        borderRadius: '20px',
-        background: '#817CA5',
-        '.row': {
-          lineHeight: '40px',
-          display: 'flex',
-          '.label': {
-            display: 'inline-block',
-            color: '#CECAEB',
-            textAlign: 'left',
-            flex: 'none',
-          },
-          '.middle': {
-            flexGrow: 1
-          },
-          '.value': {
-            display: 'inline-block',
-            textAlign: 'right',
-            color: '#FFFFFF',
-            flex: 'none',
-          },
-        },
-        '.ant-btn': {
-          width: '100%',
-          height: '60px',
-          fontSize: '24px',
-          fontWeight: 500,
-          color: '#413C5F',
-          background:'white',
-        },
-        '.ant-btn-text:not(:disabled):not(.ant-btn-disabled):hover':{
-          background:'white',
-          color: '#413C5F',
-        }
-      }
-    }),
+    () => (reviewStyle),
   )
   return (
     <div className="review">

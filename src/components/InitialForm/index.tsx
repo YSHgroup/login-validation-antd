@@ -1,18 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Form, Input, Select } from 'antd'
-import {
-  createTheme,
-  useStyleRegister,
-} from '@ant-design/cssinjs'
-import { UserInfoType } from '../../utils/type'
-import { formCss } from '../../utils/form-json'
+import { createTheme, useStyleRegister } from '@ant-design/cssinjs'
+import { UserInfoType } from '../../types/type'
+import { formCss } from '../../styles/formStyle'
 import arrow from './arrow.svg'
 
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
 }
 interface InitialFormProps {
-  continueHandle: (values:UserInfoType) => void
+  continueHandle: (values: UserInfoType) => void
 }
 const { Option } = Select
 
@@ -22,7 +19,7 @@ const validateMessages = {
     email: '${label} is not a valid email!',
   },
   pattern: {
-    mismatch:'${label} is invalid'
+    mismatch: '${label} is invalid',
   },
 }
 
@@ -34,18 +31,20 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       path: ['.signup-form'],
     },
     () => ({
-      '.signup-form':formCss
-    }),
+      '.signup-form': formCss,
+    })
   )
   const onFinish = (values: UserInfoType) => {
     continueHandle(values)
   }
   const [countries, setCountries] = useState<any>([])
-  useEffect(()=>{
-    fetch('https://restcountries.com/v3.1/independent?status=true&fields=name,cca2')
-      .then(response => response.json())
-      .then(data => setCountries(data))
-      .catch(error => console.error(error))
+  useEffect(() => {
+    fetch(
+      'https://restcountries.com/v3.1/independent?status=true&fields=name,cca2'
+    )
+      .then((response) => response.json())
+      .then((data) => setCountries(data))
+      .catch((error) => console.error(error))
   }, [])
   const [form] = Form.useForm()
   const [submittable, setSubmittable] = useState(false)
@@ -53,65 +52,75 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
   useEffect(() => {
     form.validateFields({ validateOnly: true }).then(
       () => {
-        setSubmittable(true);
+        setSubmittable(true)
       },
       () => {
-        setSubmittable(false);
-      },
+        setSubmittable(false)
+      }
     )
   }, [form, values])
-  
+
   return (
     <Form
-      name="basic"
-      layout="vertical"
+      name='basic'
+      layout='vertical'
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      autoComplete="off"
+      autoComplete='off'
       validateMessages={validateMessages}
-      className="signup-form"
+      className='signup-form'
       form={form}
     >
       <Form.Item<UserInfoType>
         hasFeedback
-        label="Username"
-        name="username"
-        rules={[{ required: true, min:4, max:12 }]}
+        label='Username'
+        name='username'
+        rules={[{ required: true, min: 4, max: 12 }]}
       >
-        <Input placeholder="Input username" />
+        <Input placeholder='Input username' />
       </Form.Item>
 
       <Form.Item<UserInfoType>
         hasFeedback
-        label="Email"
-        name="email"
+        label='Email'
+        name='email'
         rules={[{ required: true, type: 'email' }]}
       >
-        <Input placeholder="Input email" />
+        <Input placeholder='Input email' />
       </Form.Item>
 
       <Form.Item<UserInfoType>
         hasFeedback
-        label="Phone"
-        name="phone"
-        rules={[{ required: true, pattern:/^\+?([0-9]{1,4})?[-. ]?(\()?([0-9]{1,3})\)?[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,9})$/ }]}
+        label='Phone'
+        name='phone'
+        rules={[
+          {
+            required: true,
+            pattern:
+              /^\+?([0-9]{1,4})?[-. ]?(\()?([0-9]{1,3})\)?[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,9})$/,
+          },
+        ]}
       >
-        <Input placeholder="Input phone number" />
+        <Input placeholder='Input phone number' />
       </Form.Item>
       <Form.Item<UserInfoType>
-        label="Country"
-        name="country"
+        label='Country'
+        name='country'
         rules={[{ required: true, message: 'Please choose your country!' }]}
       >
         <Select
-          placeholder="Select country"
-          suffixIcon={<img src={arrow} alt="Your SVG" />}
+          placeholder='Select country'
+          suffixIcon={<img src={arrow} alt='Your SVG' />}
         >
-          {countries.map((country:any)=><Option key={country.cca2} value={country.cca2}>{country.name.common}</Option>)}
+          {countries.map((country: any) => (
+            <Option key={country.cca2} value={country.cca2}>
+              {country.name.common}
+            </Option>
+          ))}
         </Select>
       </Form.Item>
       <Form.Item>
-        <Button type="text" htmlType="submit" disabled={!submittable}>
+        <Button type='text' htmlType='submit' disabled={!submittable}>
           Continue
         </Button>
       </Form.Item>

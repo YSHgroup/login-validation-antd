@@ -4,8 +4,8 @@ import {
   createTheme,
   useStyleRegister,
 } from '@ant-design/cssinjs'
-import { UserInfoType } from '../../utils/type'
-import { formCss } from '../../utils/form-json'
+import { UserInfoType } from '../../types/type'
+import { formCss } from '../../styles/formStyle'
 
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
