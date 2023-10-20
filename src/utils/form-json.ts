@@ -17,9 +17,9 @@ export const formCss:any = {
   },
   '.ant-input-affix-wrapper':{
     borderRadius: 0,
-    padding: 0,
+    padding: '8px',
     ' >input.ant-input':{
-      padding: '8px 14px',
+      padding: '0 8px',
     },
   },
   '.ant-select-single':{

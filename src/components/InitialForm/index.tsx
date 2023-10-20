@@ -59,7 +59,8 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
         setSubmittable(false);
       },
     )
-  }, [values])
+  }, [form, values])
+  
   return (
     <Form
       name="basic"
@@ -72,6 +73,7 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       form={form}
     >
       <Form.Item<UserInfoType>
+        hasFeedback
         label="Username"
         name="username"
         rules={[{ required: true, min:4, max:12 }]}
@@ -80,6 +82,7 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       </Form.Item>
 
       <Form.Item<UserInfoType>
+        hasFeedback
         label="Email"
         name="email"
         rules={[{ required: true, type: 'email' }]}
@@ -88,6 +91,7 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       </Form.Item>
 
       <Form.Item<UserInfoType>
+        hasFeedback
         label="Phone"
         name="phone"
         rules={[{ required: true, pattern:/^\+?([0-9]{1,4})?[-. ]?(\()?([0-9]{1,3})\)?[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,9})$/ }]}
