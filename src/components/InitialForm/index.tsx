@@ -5,7 +5,7 @@ import { UserInfoType } from '../../types/type'
 import { formCss } from '../../styles/formStyle'
 import arrow from './arrow.svg'
 import { InitialFormProps } from '../../types/interfaces'
-import { sortStr } from '../../utils/sortString'
+import { sortStr } from '../../features/sortString'
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
 }

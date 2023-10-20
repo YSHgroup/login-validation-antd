@@ -28,7 +28,7 @@ function App() {
     {
       theme: createTheme(() => ({})),
       token: {},
-      path: ['.signup-steps','.header'],
+      path: ['.signup-steps','.header', '.sider'],
     },
     () => (appStyle),
   )
@@ -53,7 +53,7 @@ function App() {
           <p>{items[step]?.title}</p>
         </Header>
         <Layout hasSider style={subLayoutStyle}>
-          <Sider style={siderStyle} breakpoint="sm" collapsedWidth="0" width="calc(25vw - 24px)">
+          <Sider className='sider' style={siderStyle} breakpoint="sm" collapsedWidth="0" width="calc(25vw - 24px)">
             <Steps
               className="signup-steps"
               progressDot

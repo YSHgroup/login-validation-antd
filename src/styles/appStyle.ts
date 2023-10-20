@@ -14,6 +14,11 @@ export const appStyle = {
       lineHeight: '22px'
     }
   },
+    '@media only screen and (max-width: 600px)': {
+      '.sider': {
+        display: 'none',
+      }
+    },
   '.signup-steps': {
     '.ant-steps-item': {
       '.ant-steps-item-container': {

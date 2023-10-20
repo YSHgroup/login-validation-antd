@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import customTheme from './features/customTheme'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,26 +16,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ConfigProvider 
-      theme={{ 
-        token: { 
-          colorTextBase: '#FFFFFF',
-          fontFamily:'"Inter", sans-serif',
-        },
-        components: {
-          Steps: {
-            dotCurrentSize:16,
-            dotSize:16,
-          },
-          Select: {
-            clearBg:'#817CA5',
-            colorText:'#413C5F',
-            colorTextPlaceholder:'#C0BCDF'
-          },
-          Input:{
-            colorTextPlaceholder:'#C0BCDF'
-          },
-        } 
-      }}
+      theme={customTheme}
     >
       <StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>
         <App />
