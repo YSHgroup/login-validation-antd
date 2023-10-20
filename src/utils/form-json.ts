@@ -21,6 +21,9 @@ export const formCss:any = {
     ' >input.ant-input':{
       padding: '0 8px',
     },
+    '&:hover': {
+      boxShadow: 'inset 0 0 5px blue'
+    }
   },
   '.ant-select-single':{
     height:'40px',
@@ -63,5 +66,8 @@ export const formCss:any = {
   },
   '.ant-form-item .ant-form-item-explain-error':{
     textAlign:'left'
+  },
+  '.ant-form-item:last-child': {
+    marginBottom: "0"
   }
 }
