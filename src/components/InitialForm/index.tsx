@@ -5,6 +5,7 @@ import { UserInfoType } from '../../types/type'
 import { formCss } from '../../styles/formStyle'
 import arrow from './arrow.svg'
 import { InitialFormProps } from '../../types/interfaces'
+import { sortStr } from '../../utils/sortString'
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
 }
@@ -110,8 +111,8 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
           placeholder='Select country'
           suffixIcon={<img src={arrow} alt='Your SVG' />}
         >
-          {countries.map((country: any) => (
-            <Option key={country.cca2} value={country.cca2}>
+          {sortStr(countries).map((country: any) => (
+            <Option key={country.cca2} value={country.name.official}>
               {country.name.common}
             </Option>
           ))}

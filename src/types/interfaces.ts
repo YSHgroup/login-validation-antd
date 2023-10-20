@@ -12,4 +12,19 @@ export interface PasswordFormProps {
     continueHandle: (values:UserInfoType) => void
   }
 
-  
+  interface NativeName {
+    por: {
+        common: string
+        official: string
+    }
+}
+export interface CountryName {
+    common: string
+    nativeName: NativeName
+    official: string
+}
+
+export interface CoutryInterface<T extends CountryName> {
+    name: T
+    cca2: string
+}
