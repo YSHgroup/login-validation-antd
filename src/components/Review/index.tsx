@@ -5,7 +5,6 @@ import {
   useStyleRegister,
 } from '@ant-design/cssinjs'
 import { reviewStyle } from '../../styles/reviewStyle'
-
 import { ReviewFormProps } from '../../types/interfaces'
 
 const Review: React.FC<ReviewFormProps> = ({ finish, info }) => {
@@ -17,6 +16,7 @@ const Review: React.FC<ReviewFormProps> = ({ finish, info }) => {
     },
     () => (reviewStyle),
   )
+  
   return (
     <div className="review">
       <div className="row">

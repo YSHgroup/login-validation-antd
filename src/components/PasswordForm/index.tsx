@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import React, {useState, useEffect} from 'react'
 import { Button, Form, Input } from 'antd'
 import {
@@ -7,6 +8,7 @@ import {
 import { UserInfoType } from '../../types/type'
 import { formCss } from '../../styles/formStyle'
 import { PasswordFormProps } from '../../types/interfaces'
+
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
 }
@@ -47,7 +49,7 @@ const PasswordForm: React.FC<PasswordFormProps> = ({ continueHandle }) => {
         setSubmittable(false);
       },
     )
-  }, [values])
+  }, [form, values])
   return (
     <Form
       name="basic"

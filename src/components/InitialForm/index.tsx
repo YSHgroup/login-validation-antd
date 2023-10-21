@@ -14,11 +14,14 @@ const onFinishFailed = (errorInfo: any) => {
 const { Option } = Select
 
 const validateMessages = {
+  // eslint-disable-next-line 
   required: '${label} is required!',
   types: {
+    // eslint-disable-next-line 
     email: '${label} is not a valid email!',
   },
   pattern: {
+    // eslint-disable-next-line 
     mismatch: '${label} is invalid',
   },
 }
@@ -77,6 +80,7 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       }}
     >
       <Form.Item<UserInfoType>
+        hasFeedback
         label='Username'
         name='username'
         rules={[{ required: true, min: 4, max: 12 }]}

@@ -38,20 +38,11 @@ export const formCss:any = {
   '.ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder':{
     textAlign:'left'
   },
-  // 'button[type="submit"]':{
-  //   width:'100%',
-  //   height:'60px',
-  //   fontSize:'24px',
-  //   fontWeight:500,
-  //   color:'#8B85B1'
-  // },
   '.ant-btn-text':{
     backgroundColor:'#FFFFFF',
-    // color:'#413C5F',
   },
   '.ant-btn-text:not(:disabled):not(.ant-btn-disabled)':{
     backgroundColor:'#FFFFFF',
-    // color:'#413C5F',
   },
   '.ant-btn-text:disabled': {
     backgroundColor:'#A39FC1'

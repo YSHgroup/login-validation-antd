@@ -45,6 +45,7 @@ function App() {
     alert("You completed sign up successfully.")
     setStep(0)
   }
+  
   return (
     <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
       <Layout style={layoutStyle}>
