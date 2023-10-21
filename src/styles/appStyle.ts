@@ -1,14 +1,15 @@
+export const mainColor = '#817CA5'
+
 export const appStyle = {
   '.header': {
     'h1': {
       fontSize: '36px',
       paddingTop: '50px',
       marginBottom: 0,
-      color: '#413C5F',
       fontWeight: 500,
     },
     'p': {
-      color: '#817CA5',
+      color: mainColor,
       fontSize: '20px',
       margin: '10px',
       lineHeight: '22px'
@@ -47,10 +48,10 @@ export const appStyle = {
       background: '#87839F'
     },
     '.ant-steps-item-process>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title': {
-      color: '#817CA5'
+      color: mainColor
     },
     '.ant-steps-item-wait>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title': {
-      color: '#817CA5'
+      color: mainColor
     },
     '&.ant-steps-vertical >.ant-steps-item': {
       '.ant-steps-item-title': {
@@ -64,7 +65,7 @@ export const appStyle = {
       }
     },
     '.ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title': {
-      color: '#817CA5'
+      color: mainColor
     },
     '.ant-steps-item-title': {
       fontSize: '14px'
@@ -84,7 +85,6 @@ export const subLayoutStyle: React.CSSProperties = {
 
 export const headerStyle: React.CSSProperties = {
   textAlign: 'center',
-  color: '#413C5F',
   height: 'auto',
   paddingInline: 50,
   lineHeight: '64px',

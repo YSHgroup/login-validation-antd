@@ -39,7 +39,7 @@ const Review: React.FC<ReviewFormProps> = ({ finish, info }) => {
         <div className="middle"></div>
         <div className="value">{info?.country}</div>
       </div>
-      <Button type="text" onClick={finish}>
+      <Button type="text" block onClick={finish}>
         Complete
       </Button>
     </div>

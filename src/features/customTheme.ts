@@ -1,9 +1,11 @@
 import type { ThemeConfig } from 'antd'
+import { mainColor } from '../styles/appStyle'
+const defaultTextColor = '#413C5F'
 
 const customTheme: ThemeConfig = {
   token: {
-    colorTextBase: '#FFFFFF',
-    fontFamily: '"Inter", sans-serif',
+    colorTextBase: defaultTextColor,
+    fontFamily: '"Inter", sans-serif'
   },
   components: {
     Steps: {
@@ -11,13 +13,23 @@ const customTheme: ThemeConfig = {
       dotSize: 16,
     },
     Select: {
-      clearBg: '#817CA5',
-      colorText: '#413C5F',
+      clearBg: mainColor,
       colorTextPlaceholder: '#C0BCDF'
+    },
+    Form: {
+      labelColor: 'white'
     },
     Input: {
-      colorTextPlaceholder: '#C0BCDF'
+      colorTextPlaceholder: '#C0BCDF',
+      hoverBorderColor: 'none',
+      activeBorderColor: 'none'
     },
+    Button: {
+      colorText: '#8B85B1',
+      fontWeight: 500,
+      fontSize: 24,
+      controlHeight: 60,
+    }
   }
 }
 

@@ -64,7 +64,7 @@ const PasswordForm: React.FC<PasswordFormProps> = ({ continueHandle }) => {
         name="password"
         rules={[{ required: true, min:8, max:16 }]}
       >
-        <Input.Password />
+        <Input.Password visibilityToggle={false} />
       </Form.Item>
 
       <Form.Item<UserInfoType>
@@ -83,11 +83,11 @@ const PasswordForm: React.FC<PasswordFormProps> = ({ continueHandle }) => {
           }),
         ]}
       >
-        <Input.Password />
+        <Input.Password visibilityToggle={false} />
       </Form.Item>
 
       <Form.Item>
-        <Button type="text" htmlType="submit" disabled={!submittable}>
+        <Button type="text" block htmlType="submit" disabled={!submittable}>
           Continue
         </Button>
       </Form.Item>

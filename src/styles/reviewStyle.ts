@@ -1,10 +1,12 @@
+import { mainColor } from "./appStyle"
+
 export const reviewStyle: any = {
     '.review': {
       marginLeft: 'calc(50% - 20vw - 100px)',
       maxWidth: '400px',
       padding: '30px 20px',
       borderRadius: '20px',
-      background: '#817CA5',
+      background: mainColor,
       '.row': {
         lineHeight: '40px',
         display: 'flex',

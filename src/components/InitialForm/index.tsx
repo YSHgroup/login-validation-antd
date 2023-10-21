@@ -4,6 +4,7 @@ import { createTheme, useStyleRegister } from '@ant-design/cssinjs'
 import { UserInfoType } from '../../types/type'
 import { formCss } from '../../styles/formStyle'
 import arrow from './arrow.svg'
+import error from './error.svg'
 import { InitialFormProps } from '../../types/interfaces'
 import { sortStr } from '../../features/sortString'
 const onFinishFailed = (errorInfo: any) => {
@@ -58,7 +59,6 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       }
     )
   }, [form, values])
-
   return (
     <Form
       name='basic'
@@ -69,9 +69,14 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       validateMessages={validateMessages}
       className='signup-form'
       form={form}
+      feedbackIcons={({status, errors, warnings}) => {
+        return {
+          'error':<img src={error} alt = 'error img' />,
+          'success':<></>
+        }
+      }}
     >
       <Form.Item<UserInfoType>
-        hasFeedback
         label='Username'
         name='username'
         rules={[{ required: true, min: 4, max: 12 }]}
@@ -89,7 +94,7 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       </Form.Item>
 
       <Form.Item<UserInfoType>
-        hasFeedback
+        hasFeedback={true}
         label='Phone'
         name='phone'
         rules={[
@@ -119,7 +124,7 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
         </Select>
       </Form.Item>
       <Form.Item>
-        <Button type='text' htmlType='submit' disabled={!submittable}>
+        <Button type='text' block htmlType='submit' disabled={!submittable}>
           Continue
         </Button>
       </Form.Item>
