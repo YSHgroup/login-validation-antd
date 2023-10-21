@@ -114,39 +114,6 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
         }
       }}
     >
-      {/* <ErrorText label='Username' name='username' /> */}
-      {/* <Form.Item<UserInfoType>
-        hasFeedback
-        label='Username'
-        name='username'
-        rules={[{ required: true, min: 4, max: 12 }]}
-      >
-        <Input placeholder='Input username' />
-      </Form.Item>
-
-      <Form.Item<UserInfoType>
-        hasFeedback
-        label='Email'
-        name='email'
-        rules={[{ required: true, type: 'email' }]}
-      >
-        <Input placeholder='Input email' />
-      </Form.Item>
-
-      <Form.Item<UserInfoType>
-        hasFeedback={true}
-        label='Phone'
-        name='phone'
-        rules={[
-          {
-            required: true,
-            pattern:
-              /^\+?([0-9]{1,4})?[-. ]?(\()?([0-9]{1,3})\)?[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,9})$/,
-          },
-        ]}
-      >
-        <Input placeholder='Input phone number' />
-      </Form.Item> */}
       {formData.map((formItem: ErrorTextType) => <ErrorText {...formItem} />)}
       <Form.Item<UserInfoType>
         label='Country'
