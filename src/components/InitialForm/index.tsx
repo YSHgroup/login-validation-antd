@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Form, Input, Select } from 'antd'
+import { Button, Form, Select } from 'antd'
 import { createTheme, useStyleRegister } from '@ant-design/cssinjs'
-import { UserInfoType } from '../../types/type'
 import { formCss } from '../../styles/formStyle'
 import arrow from './arrow.svg'
 import error from './error.svg'
 import { InitialFormProps } from '../../types/interfaces'
 import { sortStr } from '../../features/sortString'
+import ErrorText from '../ErrorText'
+import { UserInfoType } from '../../types/type'
+import { ErrorTextType } from '../../types/interfaces'
+
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
 }
@@ -14,14 +17,14 @@ const onFinishFailed = (errorInfo: any) => {
 const { Option } = Select
 
 const validateMessages = {
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   required: '${label} is required!',
   types: {
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     email: '${label} is not a valid email!',
   },
   pattern: {
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     mismatch: '${label} is invalid',
   },
 }
@@ -62,6 +65,32 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       }
     )
   }, [form, values])
+  const formData: ErrorTextType[] = [
+    {
+      label: 'Username',
+      name: 'username',
+      rules: [{ 'required': true, 'min': 4, 'max': 12 }],
+      placeholder: 'Input username',
+    },
+    {
+      label: 'Email',
+      name: 'email',
+      rules: [{ 'required': true, 'type': 'email' }],
+      placeholder: 'Input email',
+    },
+    {
+      label: 'Phone',
+      name: 'phone',
+      rules: [
+        {
+          'required': true,
+          'pattern':
+            /^\+?([0-9]{1,4})?[-. ]?(\()?([0-9]{1,3})\)?[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,9})$/,
+        },
+      ],
+      placeholder: 'Input phone number',
+    },
+  ]
   return (
     <Form
       name='basic'
@@ -72,14 +101,21 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
       validateMessages={validateMessages}
       className='signup-form'
       form={form}
-      feedbackIcons={({status, errors, warnings}) => {
+      feedbackIcons={() => {
         return {
-          'error':<img src={error} alt = 'error img' />,
-          'success':<></>
+          error: (
+            <img
+              src={error}
+              alt='error img'
+              style={{ verticalAlign: 'middle' }}
+            />
+          ),
+          success: <></>,
         }
       }}
     >
-      <Form.Item<UserInfoType>
+      {/* <ErrorText label='Username' name='username' /> */}
+      {/* <Form.Item<UserInfoType>
         hasFeedback
         label='Username'
         name='username'
@@ -110,7 +146,8 @@ const InitialForm: React.FC<InitialFormProps> = ({ continueHandle }) => {
         ]}
       >
         <Input placeholder='Input phone number' />
-      </Form.Item>
+      </Form.Item> */}
+      {formData.map((formItem: ErrorTextType) => <ErrorText {...formItem} />)}
       <Form.Item<UserInfoType>
         label='Country'
         name='country'

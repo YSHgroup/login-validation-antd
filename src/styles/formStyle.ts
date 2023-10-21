@@ -38,9 +38,6 @@ export const formCss:any = {
   '.ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder':{
     textAlign:'left'
   },
-  '.ant-btn-text':{
-    backgroundColor:'#FFFFFF',
-  },
   '.ant-btn-text:not(:disabled):not(.ant-btn-disabled)':{
     backgroundColor:'#FFFFFF',
   },
@@ -49,6 +46,9 @@ export const formCss:any = {
   },
   '.ant-form-item .ant-form-item-explain-error':{
     textAlign:'left'
+  },
+  '.ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper': {
+    borderColor: 'transparent'
   },
   '.ant-form-item:last-child': {
     marginBottom: "0"

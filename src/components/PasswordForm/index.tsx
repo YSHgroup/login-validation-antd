@@ -8,6 +8,7 @@ import {
 import { UserInfoType } from '../../types/type'
 import { formCss } from '../../styles/formStyle'
 import { PasswordFormProps } from '../../types/interfaces'
+import error from '../InitialForm/error.svg'
 
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
@@ -60,16 +61,23 @@ const PasswordForm: React.FC<PasswordFormProps> = ({ continueHandle }) => {
       validateMessages={validateMessages}
       autoComplete="off"
       form={form}
+      feedbackIcons = {() => {
+        return {
+          'error': <img src={error} alt='error-svg'/>,
+          'success': <></>
+      }}}
     >
       <Form.Item<UserInfoType>
         label="Password"
         name="password"
+        hasFeedback
         rules={[{ required: true, min:8, max:16 }]}
       >
         <Input.Password visibilityToggle={false} />
       </Form.Item>
 
       <Form.Item<UserInfoType>
+        hasFeedback
         label="Repeat password"
         name="confirm_password"
         dependencies={['password']}

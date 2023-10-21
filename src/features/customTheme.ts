@@ -14,15 +14,18 @@ const customTheme: ThemeConfig = {
     },
     Select: {
       clearBg: mainColor,
-      colorTextPlaceholder: '#C0BCDF'
+      colorPrimary: 'transparent',
+      colorTextPlaceholder: '#C0BCDF',
+      colorPrimaryHover: 'transparent',
     },
     Form: {
-      labelColor: 'white'
+      labelColor: 'white',
+      colorError: '#DA2121'
     },
     Input: {
       colorTextPlaceholder: '#C0BCDF',
-      hoverBorderColor: 'none',
-      activeBorderColor: 'none'
+      hoverBorderColor: 'transparent',
+      activeBorderColor: 'transparent',
     },
     Button: {
       colorText: '#8B85B1',

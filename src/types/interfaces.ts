@@ -28,3 +28,10 @@ export interface CoutryInterface<T extends CountryName> {
   name: T
   cca2: string
 }
+
+export interface ErrorTextType {
+  label: string
+  name: "username" | "email" | "phone" | "country" | "password" | "confirm_password" | ["username"] | ["email"] | ["phone"] | ["country"] | ["password"] | ["confirm_password"] | undefined
+  rules: any[] | undefined
+  placeholder: string
+}
